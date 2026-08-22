@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACTU! - Self Aware</title>
+    
+    <!-- Importando a fonte moderna e minimalista (Montserrat - peso 300 e 100) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --bg-color: #CC2201;
+            --text-color: #fdfddb;
+        }
+
+        /* Reset e Configurações Básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Primeira Dobra: Hero Section com Vídeo */
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Garante que o vídeo preencha a tela no mobile */
+            z-index: 1;
+        }
+
+        /* Máscara escura opcional sobre o vídeo para o texto aparecer melhor */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(204, 34, 1, 0.2), var(--bg-color));
+            z-index: 2;
+        }
+
+        /* Texto da Primeira Dobra */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            animation: fadeInDown 1.5s ease-out forwards;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-weight: 100;
+            font-size: 3rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* Segunda Dobra: Música */
+        .music-section {
+            padding: 4rem 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0; /* Inicia invisível para a animação */
+            transform: translateY(30px);
+            animation: slideUp 1.2s ease-out 0.5s forwards;
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes Mobile para o iframe */
+        .soundcloud-container iframe {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Primeira Dobra: Vídeo em Loop -->
+    <header class="hero">
+        <!-- O atributo playsinline é crucial para o vídeo rodar automaticamente no iOS/Mobile -->
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>CACTU!</h1>
+            <p>SCROLL DOWN</p>
+        </div>
+    </header>
+
+    <!-- Segunda Dobra: Player do SoundCloud -->
+    <main>
+        <section class="music-section">
+            <div class="soundcloud-container">
+                <!-- Código do SoundCloud fornecido por você -->
+                <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2385257070&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/cactu-961973963" title="CACTU!" target="_blank" style="color: #cccccc; text-decoration: none;">CACTU!</a> · <a href="https://soundcloud.com/cactu-961973963/cactu-self-aware-remix" title="CACTU! - Self Aware (REMIX) [FREE DOWNLOAD]" target="_blank" style="color: #cccccc; text-decoration: none;">CACTU! - Self Aware (REMIX) [FREE DOWNLOAD]</a></div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
